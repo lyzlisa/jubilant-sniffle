@@ -69,9 +69,9 @@ jobs:
           context: ./
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd6, linux/arm64
+          platforms: linux/arm64
           push: true
-          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/python-helloworld:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/python-helloworld:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Logout of Dockerhub
